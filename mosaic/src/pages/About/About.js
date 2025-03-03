@@ -1,9 +1,23 @@
 import styles from "./About.module.css";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div>
-      <h1>About</h1>
+    <div className={styles.about}>
+      <h2>
+        Sobre o Mosaic <span>Blog</span>
+      </h2>
+      <p>
+        Este projeto consiste em uma ideia de rede social, onde qualquer um
+        possa compartilhar suas ideias e registrar momentos únicos!
+      </p>
+      <p>
+        Mosaic <span>Blog</span> foi desenvolvido em React no front-end e
+        Firebase no backend{" "}
+      </p>
+      <Link to="/posts/create" className="btn">
+        Criar Post
+      </Link>
     </div>
   );
 };
