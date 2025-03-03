@@ -6,6 +6,8 @@ import {
   signOut,
 } from "firebase/auth";
 
+import { auth } from "../firebase/config";
+
 import { useState, useEffect } from "react";
 
 export const useAuthentication = () => {
@@ -41,6 +43,8 @@ export const useAuthentication = () => {
         displayName: data.displayName,
       });
 
+      setLoading(false);
+
       return user;
     } catch (error) {
       console.log(error.message);
@@ -55,9 +59,10 @@ export const useAuthentication = () => {
       } else {
         systemErrorMessage = "oops, an error occurred";
       }
+
+      setLoading(false);
       setError(systemErrorMessage);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
