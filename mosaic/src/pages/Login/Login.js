@@ -36,7 +36,7 @@ const Login = () => {
       <p>Please, enter with your account and scroll it</p>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>E-mail</span>
+          <span>E-mail: </span>
           <input
             type="email"
             name="email"
@@ -45,7 +45,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-          <span>Password</span>
+          <span>Password:</span>
           <input
             type="password"
             name="password"
