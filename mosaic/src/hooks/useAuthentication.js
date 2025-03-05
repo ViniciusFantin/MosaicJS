@@ -1,5 +1,4 @@
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
@@ -18,8 +17,6 @@ export const useAuthentication = () => {
   // Deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
-  const auth = getAuth();
-
   function checkIfIsCancelled() {
     if (cancelled) {
       return;
@@ -30,7 +27,7 @@ export const useAuthentication = () => {
     checkIfIsCancelled();
 
     setLoading(true);
-    setError(null);
+    setError(false);
 
     try {
       const { user } = await createUserWithEmailAndPassword(
@@ -81,24 +78,20 @@ export const useAuthentication = () => {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
     } catch (error) {
-      console.log(error.message);
-      console.log(typeof error.message);
-      console.log(error.message.includes("user-not"));
+      console.log("codigo de erro: ", error.message);
+
       let systemErrorMessage;
 
-      if (error.message.includes("invalid-credential")) {
-        systemErrorMessage = "E-mail ou Senha estão incorretos";
-      } //else if (error.message.includes("wrong-password")) {}
-      //systemErrorMessage = "Wrong Password";
+      if (error.message.includes("auth/invalid-credential")) {
+        systemErrorMessage = "User or Password is incorret.";
+      } //else if (error.message.includes("auth/wrong-password")) {
+      //systemErrorMessage = "Senha incorreta.";}
       else {
-        systemErrorMessage = "something went wrong, try again later";
+        systemErrorMessage = "Ocorreu um erro, por favor tenta mais tarde.";
       }
       console.log(systemErrorMessage);
-
       setError(systemErrorMessage);
     }
-
-    console.log(error);
 
     setLoading(false);
   };
