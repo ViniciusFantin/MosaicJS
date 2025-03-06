@@ -32,7 +32,7 @@ const Home = () => {
           <div className={styles.noposts}>
             <p>No post avaliable</p>
             <Link to="/posts/create" className="btn">
-              Create a Post/
+              Create a Post
             </Link>
           </div>
         )}
