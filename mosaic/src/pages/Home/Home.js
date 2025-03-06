@@ -3,6 +3,8 @@ import styles from "./Home.module.css";
 
 // hooks
 import { useNavigate, Link } from "react-router-dom";
+
+// React imports
 import { useState } from "react";
 
 //components
@@ -16,9 +18,9 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className={styles.home}>
       <h1>Feed</h1>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.search_form} onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Or shearch for a tag..."
@@ -26,9 +28,9 @@ const Home = () => {
         />
         <button className="btn btn-dark">Search</button>
       </form>
-      <div>
+      <div className="post-list">
         <h1>Posts...</h1>
-        {posts && posts.lenght === 0 && (
+        {posts && posts.length === 0 && (
           <div className={styles.noposts}>
             <p>No post avaliable</p>
             <Link to="/posts/create" className="btn">
