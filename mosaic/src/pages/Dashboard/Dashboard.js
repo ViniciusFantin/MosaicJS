@@ -1,4 +1,4 @@
-import styles from "./Dashboard";
+import styles from "./Dashboard.module.css";
 
 import { Link } from "react-router-dom";
 
@@ -11,9 +11,14 @@ const Dashboard = () => {
   const uid = user.id;
 
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
+  const deleteDocument = (id) => {};
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <div>
+    <div className={styles.dashboard}>
       <h1>Dashboard</h1>
       <p>Menage your Posts!</p>
       {posts && posts.length === 0 ? (
@@ -25,12 +30,30 @@ const Dashboard = () => {
           </Link>
         </div>
       ) : (
-        <div>
-          <p>Posts</p>
+        <div className={styles.post_header}>
+          <span>Título</span>
+          <span>Ações</span>
         </div>
       )}
 
-      {posts && posts.map((post) => <h3>{post.title}</h3>)}
+      {posts &&
+        posts.map((post) => (
+          <div key={post.id} className={styles.post_row}>
+            <p>{post.title}</p>
+            <div>
+              <Link to={`/posts/${post.id}`} className="btn btn-outline">
+                view
+              </Link>
+              <Link to={`/posts/edit/${post.id}`}>Edit</Link>
+              <button
+                onClick={() => deleteDocument(post.id)}
+                className="btn btn-outline btn-danger"
+              >
+                Excluir
+              </button>
+            </div>
+          </div>
+        ))}
     </div>
   );
 };
