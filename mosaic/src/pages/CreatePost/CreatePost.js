@@ -9,7 +9,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState("");
   const [formError, setFormError] = useState("");
 
   const { user } = useAuthValue();
@@ -61,7 +61,7 @@ const CreatePost = () => {
           <span> Title:</span>
           <input
             type="text"
-            naome="text"
+            name="text"
             required
             placeholder="think about a gooood title..."
             onChange={(e) => setTitle(e.target.value)}
