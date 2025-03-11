@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 // hook
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
 const Dashboard = () => {
   const { user } = useAuthValue();
   const uid = user.id;
 
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
-  const deleteDocument = (id) => {};
+  const { deleteDocument } = useDeleteDocument("posts");
 
   if (loading) {
     return <p>Loading...</p>;
@@ -44,7 +45,9 @@ const Dashboard = () => {
               <Link to={`/posts/${post.id}`} className="btn btn-outline">
                 view
               </Link>
-              <Link to={`/posts/edit/${post.id}`}>Edit</Link>
+              <Link to={`/posts/edit/${post.id}`} className="btn btn-outline">
+                Edit
+              </Link>
               <button
                 onClick={() => deleteDocument(post.id)}
                 className="btn btn-outline btn-danger"
