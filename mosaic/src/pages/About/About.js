@@ -8,8 +8,8 @@ const About = () => {
         Sobre o Mosaic <span>Blog</span>
       </h2>
       <p>
-        Este projeto consiste em uma ideia de rede social, onde qualquer um
-        possa compartilhar suas ideias e registrar momentos únicos!
+        Este projeto consiste em uma ideia de portfólio para, onde qualquer um
+        possa compartilhar suas ideias e registrar seus projetos!
       </p>
       <p>
         Mosaic <span>Blog</span> foi desenvolvido em React no front-end e

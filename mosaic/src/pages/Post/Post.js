@@ -15,7 +15,7 @@ const Post = () => {
           <h1>{post.title}</h1>
           <img src={post.image} alt={post.title} />
           <p>{post.body}</p>
-          <h3>This post is about:</h3>
+          <h3>This project is about:</h3>
           <div className={styles.tags}>
             {post.TagsArray.map((tag) => (
               <p key={tag}>
