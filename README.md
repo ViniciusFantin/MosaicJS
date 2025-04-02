@@ -23,15 +23,14 @@
 🔐 Proteção das rotas de criação para garantir que apenas usuários logados possam postar
 
 🚀 Tecnologias Utilizadas:
--> React – Construção da interface do usuário com componentes reutilizáveis
 
--> Firebase – Backend completo com:
+- React – Construção da interface do usuário com componentes reutilizáveis
 
-- Firebase Authentication (login, cadastro, sessão)
+- Firebase – Backend completo com:
+Firebase Authentication (login, cadastro, sessão)
+Firestore Database (armazenamento dos posts dos usuários)
 
-- Firestore Database (armazenamento dos posts dos usuários)
-
--> React Router – Navegação entre páginas (login, cadastro, feed, criar post)
+- React Router – Navegação entre páginas (login, cadastro, feed, criar post)
 
 🎯 Objetivo
 Fornecer uma plataforma simples e funcional para designers compartilharem seu trabalho com a comunidade, ao mesmo tempo que se pratica o uso de ferramentas modernas como React e Firebase para autenticação, banco de dados e estrutura de front-end.
