@@ -26,9 +26,11 @@
 
 - React – Construção da interface do usuário com componentes reutilizáveis
 
--> Firebase – Backend completo com:
-- Firebase Authentication (login, cadastro, sessão)
-- Firestore Database (armazenamento dos posts dos usuários)
+- Firebase – Backend completo com:
+
+-> Firebase Authentication (login, cadastro, sessão)
+
+-> Firestore Database (armazenamento dos posts dos usuários)
 
 - React Router – Navegação entre páginas (login, cadastro, feed, criar post)
 
